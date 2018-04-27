@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+	<acl>
+		<resources>
+			<resource id="Magento_Backend::admin">
+				<resource id="Magefan_TestEmail::TestEmail" sortOrder="10" title="TestEmail">
+					<resource id="Magefan_TestEmail::TestEmail_save" sortOrder="10" title="Save TestEmail"/>
+					<resource id="Magefan_TestEmail::TestEmail_delete" sortOrder="20" title="Delete TestEmail"/>
+					<resource id="Magefan_TestEmail::TestEmail_update" sortOrder="30" title="Update TestEmail"/>
+					<resource id="Magefan_TestEmail::TestEmail_view" sortOrder="40" title="View TestEmail"/>
+				</resource>
+			</resource>
+		</resources>
+	</acl>
+</config>

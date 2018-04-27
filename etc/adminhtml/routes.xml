@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
+	<router id="admin">
+		<route frontName="magefan_testemail" id="magefan_testemail">
+			<module before="Magento_Backend" name="Magefan_TestEmail"/>
+		</route>
+		<route frontName="mftestemail" id="mftestemail">
+			<module before="Magento_Backend" name="Magefan_TestEmail"/>
+		</route>
+	</router>
+</config>

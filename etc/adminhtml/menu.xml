@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+	<menu>
+		<add id="Magefan::top_level" module="Magefan_TestEmail" resource="Magento_Backend::content" sortOrder="9999" title="Magefan"/>
+		<add action="magefan_testemail/testemail/index" id="Magefan::magefan_testemail_testemail" module="Magefan_TestEmail" parent="Magefan::top_level" resource="Magento_Backend::content" sortOrder="9999" title="TestEmail"/>
+	</menu>
+</config>
