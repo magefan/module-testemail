@@ -12,12 +12,17 @@ namespace Magefan\Blog\Model\Config\Source;
  * Authors list
  *
  */
-class Author implements \Magento\Framework\Option\ArrayInterface
+class Author extends \Magento\Email\Model\Source\Variables
 {
     /**
-     * @var \Magento\User\Model\ResourceModel\User\CollectionFactory
+     * @var \Magento\Newsletter\Model\ResourceModel\Template\CollectionFactory
      */
-    protected $authorCollectionFactory;
+    protected $newsletterTemplateCollectionFactory;
+
+    /**
+     * @var \Magento\Email\Model\ResourceModel\Template\CollectionFactory
+     */
+    protected $emailTemplateCollectionFactory;
 
     /**
      * @var array
@@ -27,13 +32,18 @@ class Author implements \Magento\Framework\Option\ArrayInterface
     /**
      * Initialize dependencies.
      *
-     * @param \Magento\User\Model\ResourceModel\User\CollectionFactory $authorCollectionFactory
+     * @param \Magento\Newsletter\Model\ResourceModel\Template\CollectionFactory $newsletterTemplateCollectionFactory
+     * @param \Magento\Email\Model\ResourceModel\Template\CollectionFactory $emailTemplateCollectionFactory
      * @param void
      */
     public function __construct(
-        \Magento\User\Model\ResourceModel\User\CollectionFactory $authorCollectionFactory
+        \Magento\Newsletter\Model\ResourceModel\Template\CollectionFactory $newsletterTemplateCollectionFactory,
+        \Magento\Email\Model\ResourceModel\Template\CollectionFactory $emailTemplateCollectionFactory
     ) {
-        $this->authorCollectionFactory = $authorCollectionFactory;
+        $this->newsletterTemplateCollectionFactory = $newsletterTemplateCollectionFactory;
+        $this->newsletterTemplateCollectionFactory = $emailTemplateCollectionFactory;
+
+        parent::__construct();
     }
 
     /**
@@ -43,8 +53,11 @@ class Author implements \Magento\Framework\Option\ArrayInterface
      */
     public function toOptionArray()
     {
+
         if ($this->options === null) {
-            $this->options = [['label' => __('Please select'), 'value' => 0]];
+
+            $this->options = parent::toOptionArray();
+            //$this->options = [['label' => __('Please select'), 'value' => 0]];
             $collection = $this->authorCollectionFactory->create();
 
             foreach ($collection as $item) {
